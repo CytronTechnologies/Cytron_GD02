@@ -19,49 +19,64 @@ ANGLELIMIT 	        0x0002
 VOLTAGE		        0x0001
 */
 
+
 //declaration of variables & object
 word ERROR=0;
 byte DATA[10]; 
 word STATUS;
 
 //declare G15 Class Object
-//servo1 array with ID of 0,1,2 and 3
-G15 servo[4]={0,1,2,3};
+//servo1 ID=1
+G15 servo1(1); 
+//servo2 ID=2
+G15 servo2(2); 
 
 
 void setup(){
   
 //initialize the arduino main board's serial/UART and Control Pins
-//CTRL pin for G15 =3 and AX12 =8
   G15ShieldInit(19200,3,8); 
   
 //call the init function to init servo obj
-
-  for(int i=0; i<4; i++)
-  {
-    servo[i].init();
-  }    
+  servo1.init();           
+  servo2.init(); 
 
 //init LED indicator as output
   pinMode(LED_BOARD,OUTPUT);  
   digitalWrite(LED_BOARD, LOW); 
   
-  delay(3000); 
+  delay(500); 
+  digitalWrite(LED_BOARD, HIGH);
   
 }
 void loop(){
-   
-  for(int i=0; i<4; i++)
-  {
-    servo[i].SetLED(ON, iWRITE_DATA); 
-    servo[i].SetPos(ConvertAngle2Pos(0),iWRITE_DATA);
-    delay(1000); 
-    servo[i].SetPos(ConvertAngle2Pos(90),iWRITE_DATA);
-    delay(1000); 
-    servo[i].SetLED(OFF, iWRITE_DATA); 
     
-  }
-  
-      
-      
+    servo1.SetLED(ON,iWRITE_DATA);
+    
+    servo1.SetSpeed(500,iWRITE_DATA);
+    servo1.SetPos(ConvertAngle2Pos(0),iWRITE_DATA);    //goto 0 degree pos 
+    
+    delay(1000); 
+     
+    servo1.SetPos(ConvertAngle2Pos(90),iWRITE_DATA);   //goto 90 degree pos
+    servo1.SetSpeed(250,iWRITE_DATA);
+    
+     servo1.SetLED(OFF,iWRITE_DATA);
+    
+    delay(1000); 
+    
+    servo2.SetLED(ON,iWRITE_DATA);
+    
+    servo2.SetSpeed(250,iWRITE_DATA);
+    servo2.SetPos(ConvertAngle2Pos(0),iWRITE_DATA);     //goto 0 degree pos
+    
+    delay(1000); 
+    
+    servo2.SetSpeed(500,iWRITE_DATA);
+    servo2.SetPos(ConvertAngle2Pos(90),iWRITE_DATA);   //goto 90 degree pos
+    
+    servo2.SetLED(OFF,iWRITE_DATA);
+    delay(1000); 
+    
+
 }

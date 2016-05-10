@@ -1,0 +1,43 @@
+#######################################
+# Syntax Coloring Map For G15
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+G15  KEYWORD1
+AX12 KEYWORD1
+ServoID KEYWORD1
+CW	KEYWORD1
+CCW	KEYWORD1	
+ON	KEYWORD1
+OFF	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+G15ShieldInit  KEYWORD2
+init	KEYWORD2
+SetWheelMode	KEYWORD2	
+ExitWheelMode	KEYWORD2
+SetWheelSpeed	KEYWORD2
+SetPos	KEYWORD2
+SetTorque	KEYWORD2
+SetLED	KEYWORD2
+SetSpeed	KEYWORD2
+SetID	KEYWORD2
+SetAngleLimit	KEYWORD2
+SetBaudRate	KEYWORD2
+FactoryReset	KEYWORD2
+Ping	KEYWORD2
+GetPos	KEYWORD2
+GetTorque	KEYWORD2
+IsMoving	KEYWORD2
+SetAction	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
