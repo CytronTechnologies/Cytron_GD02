@@ -1,5 +1,6 @@
 # Cytron_GD02  
 G15 Driver (GD02) is used to drive G15 Cube Servo.  
+<img src="https://github.com/CytronTechnologies/Cytron_GD02/blob/master/g15-driver-image.jpg" width="350">
 
 ## Requirements  
 **Hardware:**   
